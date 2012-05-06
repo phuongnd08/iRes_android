@@ -1,0 +1,5 @@
+tmp
+build
+*.log
+Resources/android
+Resources/mobileweb
