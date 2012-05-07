@@ -1,6 +1,8 @@
 function IResTabGroup() {
   //create module instance
-  var self = Ti.UI.createTabGroup();
+  var self = Ti.UI.createTabGroup({
+  	tabBarVisible: true
+  });
 
   //create app tabs
   var SettingsWindow = require("ui/common/SettingsWindow");
@@ -21,6 +23,16 @@ function IResTabGroup() {
   self.addTab(tab1);
   self.addTab(tab2);
 
+  var TABBAR_HEIGHT = 47
+  Ti.App.addEventListener('toggleTabBar', function(){
+    if (self.tabBarVisible) {
+        self.animate({ top: -TABBAR_HEIGHT, duration: 500 });
+        self.tabBarVisible = false;
+    } else {
+        self.animate({ top: 0, duration: 500 });
+        self.tabBarVisible = true;
+    }
+  })
   return self;
 };
 
