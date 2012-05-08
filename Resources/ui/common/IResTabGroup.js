@@ -1,5 +1,7 @@
 function IResTabGroup() {
   //create module instance
+  var TABBAR_HEIGHT = 47
+
   var self = Ti.UI.createTabGroup({
   	tabBarVisible: true
   });
@@ -22,8 +24,6 @@ function IResTabGroup() {
 
   self.addTab(tab1);
   self.addTab(tab2);
-
-  var TABBAR_HEIGHT = 47
   Ti.App.addEventListener('toggleTabBar', function(){
     if (self.tabBarVisible) {
         self.animate({ top: -TABBAR_HEIGHT, duration: 500 });

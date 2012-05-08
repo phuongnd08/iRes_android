@@ -4,11 +4,7 @@ function NavigateWindow() {
     title: L("home")
   });
   var Settings = require("ui/common/Settings")
-    var url = "about:blank"
-    var server;
-  if (server = Settings.get(Settings.SERVER_ADDRESS)){
-    url = 'http://' + server + "/waiter"
-  }
+  var url = 'http://' + Settings.getServerAddress() + Settings.getDefaultPage()
   var button = Ti.UI.createView({
 	height: 10,
 	width: '100%',
