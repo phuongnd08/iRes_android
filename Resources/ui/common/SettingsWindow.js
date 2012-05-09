@@ -9,7 +9,7 @@ function SettingsWindow() {
   var defaultPageIndex = Settings.getDefaultPageIndex();
 
     var serverLabel = Ti.UI.createLabel({
-      text: "Server Address",
+      text: L("server_address"),
         left: 10,
         top: 10
     })
@@ -23,37 +23,38 @@ function SettingsWindow() {
   })
   
   var pageLabel = Ti.UI.createLabel({
-  	text: "Default page",
+  	text: L("default_page"),
   	left: 10,
   	top: 70,
   })
-  
-  self.add(pageLabel)
   
   var pagesPicker = PagesPicker({
   	top: 90,
   	left: 10
   }, defaultPageIndex);
   
-  self.add(pagesPicker);
-  
   pagesPicker.addEventListener('change', function(e){
   	defaultPageIndex = e.rowIndex;
   })
 
-  var saveBtn = Ti.UI.createButton({
+  var applyBtn = Ti.UI.createButton({
     left: 10,
       top: 130,
-      title: 'Save settings'
+      title: L("apply_settings")
   })
-  saveBtn.addEventListener('click', function(){
+  
+  applyBtn.addEventListener('click', function(){
     Settings.setServerAddress(serverField.value)
     Settings.setDefaultPageIndex(defaultPageIndex)
+    Ti.App.fireEvent("appSettingsChanged")
   })
+  
   self.add(serverLabel)
     self.add(serverField)
-    self.add(saveBtn)
-    return self;
+  self.add(pageLabel) 
+    self.add(pagesPicker) 
+    self.add(applyBtn)
+    return self
 };
 
 module.exports = SettingsWindow;

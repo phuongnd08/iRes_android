@@ -2,4 +2,7 @@
 <resources>
   <string name="home">Navigate</string>
   <string name="settings">Settings</string>
+  <string name="apply_settings">Apply settings</string>
+  <string name="server_address">Server address</string>
+  <string name="default_page">Default page</string>
 </resources>

@@ -2,4 +2,7 @@
 <resources>
   <string name="home">Trang chủ</string>
   <string name="settings">Cấu hình</string>
+  <string name="apply_settings">Áp dụng cấu hình này</string>
+  <string name="server_address">Địa chỉ máy chủ</string>
+  <string name="default_page">Trang mặc định</string>
 </resources>
